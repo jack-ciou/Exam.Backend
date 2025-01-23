@@ -6,9 +6,6 @@ namespace Exam.Backend.Models;
 
 public partial class MyDbContext : DbContext
 {
-    public MyDbContext()
-    {
-    }
 
     public MyDbContext(DbContextOptions options)
         : base(options)
@@ -18,9 +15,6 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<MyOfficeAcpd> MyOfficeAcpds { get; set; }
 
     public virtual DbSet<MyOfficeExcuteionLog> MyOfficeExcuteionLogs { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("DefaultConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
