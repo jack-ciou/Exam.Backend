@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Exam.Backend.Models.MyOfficeAcpd>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdCname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdEname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdSname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdStop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdStopMemo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdLoginId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdLoginPwd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdMemo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdNowDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdNowId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdUpddateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcpdUpdid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdCname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdEname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdSname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdStop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdStopMemo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdLoginId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdLoginPwd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdMemo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdNowDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdNowId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdUpddateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcpdUpdid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AcpdSid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AcpdSid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AcpdSid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
