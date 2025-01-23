@@ -31,14 +31,14 @@ namespace Exam.Backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<MyOfficeAcpd>> GetMyOfficeAcpd(string id)
         {
-            var myOfficeAcpd = await _context.MyOfficeAcpds.FindAsync(id);
-
+            
+            var myOfficeAcpd = await _context.GetMyofficeACPDAsync(id);
             if (myOfficeAcpd == null)
             {
                 return NotFound();
             }
 
-            return myOfficeAcpd;
+            return myOfficeAcpd.First();
         }
 
         // PUT: api/MyOfficeAcpds/5

@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Data.SqlClient;
-using System.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Exam.Backend.Models;
 
-public partial class MyDbContext : DbContext
+public partial class DbContext : DbContext
 {
+    public DbContext()
+    {
+    }
 
-    public MyDbContext(DbContextOptions options)
+    public DbContext(DbContextOptions<DbContext> options)
         : base(options)
     {
     }
@@ -18,13 +19,9 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<MyOfficeExcuteionLog> MyOfficeExcuteionLogs { get; set; }
 
-    // 呼叫儲存過程的範例
-    public async Task<IEnumerable<MyOfficeAcpd>> GetMyofficeACPDAsync(string acpdSid)
-    {
-        var parameter = new SqlParameter("@acpdSid", SqlDbType.NVarChar) { Value = acpdSid };
-        var result = await MyOfficeAcpds.FromSqlRaw("EXEC GetMyofficeACPD @acpdSid", parameter).ToListAsync();
-        return result;
-    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=JACK-PC-AMD\\SQL2022;Initial Catalog=db;Integrated Security=True;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
